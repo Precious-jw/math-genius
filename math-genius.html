@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/jpg" href="images/precious.jpg"/>
+		<title>MATHS GENIUS | By Precious Newssy</title>
+	</head>
+	
+	<body>
+		<style>
+			body{
+				background-color: rgb(206, 134, 0);
+				font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+				font-size: 100%;
+			}
+			.game-body{
+				text-align: center;
+				transition: .4s;
+			}
+			.main-body{
+				margin-top: 1%;
+				padding: 2%;
+				width: 45%;
+				border: 2px solid white;
+				box-shadow: 0px 0px 15px 0px rgb(112, 112, 112);
+				border-radius: 40px;
+				margin-left: auto;
+				margin-right: auto;
+				transition: .4s;
+			}
+			.select{
+				-webkit-animation-name: sol;
+				-webkit-animation-duration: 0.8s;
+				animation-name: sol;
+				animation-duration: 0.8s;
+			}
+			.inputs{
+				outline: 0;
+				color: black;
+				border: 1px solid rgb(255, 255, 255);
+				padding: 2% 0 2% 0;
+				width: 20%;
+				text-align: center;
+				font-weight: bolder;
+				font-size: 120%;
+				transition: .5s;
+			}
+			.inputs:focus{
+				border: 1px solid rgb(255, 255, 255);
+				box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+				transition: .5s;
+			}
+			.button{
+				background-color: orange;
+				border: 2px solid white;
+				border-radius: 30px;
+				color: white;
+				padding: 2% 3% 2% 3%;
+				margin-left: 1%;
+				cursor: pointer;
+				outline: none;
+				transition: .4s;
+			}
+			.button:hover{
+				background-color: rgb(206, 134, 0);
+				transition: .4s;
+			}
+			.addition{
+				display: none;
+				-webkit-animation-name: sol;
+				-webkit-animation-duration: 1s;
+				animation-name: sol;
+				animation-duration: 1s;
+			}
+			.subtraction{
+				display: none;
+				-webkit-animation-name: sol;
+				-webkit-animation-duration: 1s;
+				animation-name: sol;
+				animation-duration: 1s;
+			}
+			.multiplication{
+				display: none;
+				-webkit-animation-name: sol;
+				-webkit-animation-duration: 1s;
+				animation-name: sol;
+				animation-duration: 1s;
+			}
+			.division{
+				display: none;
+				-webkit-animation-name: sol;
+				-webkit-animation-duration: 1s;
+				animation-name: sol;
+				animation-duration: 1s;
+			}
+			.modulus{
+				display: none;
+				-webkit-animation-name: sol;
+				-webkit-animation-duration: 1s;
+				animation-name: sol;
+				animation-duration: 1s;
+			}
+			
+			@-webkit-keyframes sol {
+				from {top:-35%; opacity:0} 
+				to {top:0; opacity:1}
+			}
+
+			@keyframes sol {
+				from {top:-35%; opacity:0}
+				to {top:0;opacity:1}
+			}
+			.modal {
+				display: none; /* Hidden by default */
+				position: fixed; /* Stay in place */
+				z-index: 1; /* Sit on top */
+				padding: 15% 0 0 0;
+				left: 0;
+				top: 0;
+				width: 100%; /* Full width */
+				height: 100%; /* Full height */
+				overflow: auto; /* Enable scroll if needed */
+				background-color: rgb(0,0,0); /* Fallback color */
+				background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+			}
+			.modal-body{
+				margin: 3% 2% 0 2%;
+			}
+			/* Modal Content */
+			.modal-content {
+				position: relative;
+				background-color: #fefefe;
+				margin: auto;
+				padding: 0 0 2% 0;
+				border: 1px solid #888;
+				width: 40%;
+				box-shadow: 0 0px 15px 0 rgb(26, 26, 26);
+				-webkit-animation-name: animatetop;
+				-webkit-animation-duration: 0.6s;
+				animation-name: animatetop;
+				animation-duration: 0.6s
+			}
+
+			@-webkit-keyframes animatetop {
+				from {top:-35%; opacity:0} 
+				to {top:0; opacity:1}
+			}
+
+			@keyframes animatetop {
+				from {top:-35%; opacity:0}
+				to {top:0;opacity:1}
+			}
+			.modal a{
+				text-decoration: none;
+				padding: 2% 5%;
+				margin: 4%;
+				background-color: orange;
+				color: white;
+				cursor: pointer;
+			}
+			.modal a:hover{
+				background-color: rgb(187, 121, 0);
+			}
+			.modal-header {
+				padding: 1% 16px 1% 16px;
+				background-color: orange;
+				color: white;
+			}
+			.showResult a{
+				text-decoration: none;
+				padding: 1% 2%;
+				margin: 2%;
+				background-color: orange;
+				color: white;
+				cursor: pointer;
+			}
+			.showResult a:hover{
+				background-color: rgb(187, 121, 0);
+			}
+			.flex{
+				font-size: 120%;
+				font-weight: bolder;
+				height: auto;
+				width: 100%;
+				display: none;
+			}
+			.score-holder{
+				display: flex;
+				margin-left: auto;
+			}
+			.score, .question{
+				padding-left: 2%;
+			}
+			.question-holder{
+				display: flex;
+				margin-right: auto;
+			}
+			.game-over{
+				display: none;
+				padding: 0;
+				margin: 0;
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+				-webkit-animation-name: sol;
+				-webkit-animation-duration: 1s;
+				animation-name: sol;
+				animation-duration: 1s;
+			}
+			.details, .final-text{
+				width: auto;
+				margin: auto;
+				display: block;
+				font-size: larger;
+				font-weight: bolder;
+			}
+			.rating-holder, .final-score-holder{
+				width: 20%;
+				margin: auto;
+				padding: 2%;
+				margin-top: 2%;
+				border: 2px solid white;
+				box-shadow: 0 0px 15px 0 rgb(26, 26, 26);
+			}
+
+			/*Responsitivity*/
+			@media screen and (max-width: 800px){
+				.game-body{
+					margin-top: 10%;
+					font-size: 90%;
+				}
+				.main-body{
+					width: 70%;
+					padding-bottom: 5%;
+					padding-right: 5%;
+				}
+				.inputs{
+					width: 70%;
+					margin-top: 1%;
+					margin-left: auto;
+					margin-right: auto;
+					display: flex;
+					flex-wrap: wrap;
+				}
+				.answers{
+					margin-bottom: 5%;
+				}
+				.modal {
+					padding: 55% 0 0 0;
+				}
+				.modal-content {
+					width: 80%;
+				}
+			}
+
+		</style>
+			
+		<div class="game-body">
+			<h1 class="game-header select">MATH GENIUS</h1>
+			
+			<div class="main-body">
+				<section id="welcome-content">
+					<h2 class="game-subheader select">Welcome to Math Genius</h2>
+					<h3 class="text select">Let's see how good your math skills are</h3>
+						<span class="flex">
+							<span class="question-holder">Q<span class="question">0</span></span>
+							<span class="timer-holder"><span class="timer"></span>s</span>
+							<span class="score-holder">Score:<span class="score">0</span>0 Points</span>
+						</span>
+
+						<button id="play" onclick="generateRandom()" class="button">PLAY GAME</button>
+
+				</section>
+				
+				<section class="solutions">
+					
+					<div class="addition">
+						<h2 class="addition-subheader">Addition</h2>
+						<h3 class="text">Find the sum of the following</h3>
+						<input type='text' id='addEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='addAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='add' class="button" value="Submit">
+						<input type='submit' id="addHome" value='Home' class="button">
+					</div>
+
+					<div class="subtraction">
+						<h2 class="subtraction-subheader">Subtraction</h2>
+						<h3 class="text">Find the difference between the following numbers</h3>
+						<input type='text' id='subEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='subAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='sub' onclick='sub()' value='submit' class="button">
+						<input type='submit' id="subHome" value='Home' class="button">
+					</div>
+
+					<div class="multiplication">
+						<h2 class="multiplication-subheader">Multiplication</h2>
+						<h3 class="text">Find the product of the following</h3>
+						<input type='text' id='mulEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='mulAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='mul' onclick='mul()' value='submit' class="button">
+						<input type='submit' id="mulHome" value='Home' class="button">
+					</div>
+
+					<div class="division">
+						<h2 class="division-subheader">Division</h2>
+						<h3 class="text">Divide the following numbers</h3>
+						<input type='text' id='divideEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='divideAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='divide' onclick='divide()' value='submit' class="button">
+						<input type='submit' id="divHome" value='Home' class="button">
+					</div>
+
+					<div class="modulus">
+						<h2 class="modulus-subheader">Modulus</h2>
+						<h3 class="text">Find the remainder of the following divisions</h3>
+						<input type='text' id='modEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='modAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='mod' onclick='mod()' value='submit' class="button">
+						<input type='submit' id="modHome" value='Home' class="button">
+					</div>
+					<div class="game-over">
+						<h2 class="over-header">GAME OVER</h2>
+						<p class="final-text">Well done. Your final rating is <br><p class="rating-holder"><strong class="rating"></strong></p></p>
+						<p class="details">Your is final score is <p class="final-score-holder"><strong class="final-score"></strong></p></p>
+						<input type='submit' id='again' value='Play again' class="button">
+						<button id='overHome' class="button">Home</button>
+					</div>
+				</section>
+			</div>
+
+			<div id="myModal" class="modal box">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h2>MATH GENIUS</h2>
+				  </div>
+				  <div class="modal-body">
+					<p>Are you sure you want to quit? Your current progress will be lost</p><br>
+					<a id="goHome">Yes</a><a id="close">No</a>
+				  </div>
+				</div>
+			  
+			</div>
+
+			  <div id="showResult" class="modal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h2>MATH GENIUS</h2>
+				  </div>
+				  <div class="modal-body">
+					<p class="result"></p>
+					<a id="continue">Continue</a>
+				  </div>
+				</div>
+			  
+			  </div><br><br>
+			  		
+		</div>
+		
+		
+		<script type='text/javascript'>
+		
+		document.getElementById("close").onclick = function(){
+			document.getElementById("myModal").style.display = "none";
+		}
+		
+			
+				//Show the clicked topic
+				var add = document.querySelector(".addition");
+				var minus = document.querySelector(".subtraction");
+				var multiply = document.querySelector(".multiplication");
+				var divide = document.querySelector(".division");
+				var mod = document.querySelector(".modulus");
+				var allTopics = document.querySelector(".sol");
+				var holder = document.querySelector(".flex");
+
+
+					
+					/*
+						 When the user clicks on the play button, generate a random question.
+					*/
+					
+			function generateRandom(){
+						var play = document.getElementById("play").style.display = "none";
+						var randomGame = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+						holder.style.display = "flex";
+						
+						//Modal box
+						function home(){
+							document.getElementById("myModal").style.display = "block";
+						}
+						
+
+								document.getElementById("again").onclick = function(){
+									document.querySelector(".question").innerHTML = 0;
+									document.querySelector(".score").innerHTML = 0;
+									document.querySelector(".game-over").style.display = "none";
+									return generateRandom();
+								}
+
+								
+								//If the user wants to go to the game home page
+								document.getElementById("goHome").onclick = function(){
+									add.style.display = "none";
+									minus.style.display = "none";
+									multiply.style.display = "none";
+									divide.style.display = "none";
+									mod.style.display = "none";
+									holder.style.display = "none";
+									var play = document.getElementById("play");
+									play.style.display = "inline";
+									document.querySelector(".score").innerHTML = 0;
+									document.querySelector(".question").innerHTML = 0;
+									document.getElementById("myModal").style.display = "none";
+								}
+
+								document.getElementById("addHome").onclick = function(){
+									return home();
+								}
+								document.getElementById("subHome").onclick = function(){
+									return home();
+								}
+								document.getElementById("mulHome").onclick = function(){
+									return home();
+								}
+								document.getElementById("divHome").onclick = function(){
+									return home();
+								}
+								document.getElementById("modHome").onclick = function(){
+									return home();
+								}
+								document.getElementById("overHome").onclick = function(){
+									document.querySelector(".game-over").style.display = "none";
+									add.style.display = "none";
+									minus.style.display = "none";
+									multiply.style.display = "none";
+									divide.style.display = "none";
+									mod.style.display = "none";
+									holder.style.display = "none";
+									var play = document.getElementById("play");
+									play.style.display = "inline";
+									document.querySelector(".score").innerHTML = 0;
+									document.querySelector(".question").innerHTML = 0;
+									document.getElementById("myModal").style.display = "none";
+								}
+
+							document.getElementById("continue").onclick = function(){
+									var score = document.querySelector(".score").innerHTML;
+								if (score == 0){
+									document.querySelector(".rating").innerHTML = "Poor";
+								} else if (score <= 3){
+									document.querySelector(".rating").innerHTML = "Not bad";
+								} else if (score <= 5){
+									document.querySelector(".rating").innerHTML = "Average";
+								} else if (score <= 7){
+									document.querySelector(".rating").innerHTML = "Good";
+								} else if (score <= 10){
+									document.querySelector(".rating").innerHTML = "Very good";
+								} else if (score <= 14){
+									document.querySelector(".rating").innerHTML = "Excellent";
+								} else {
+									document.querySelector(".rating").innerHTML = "Genius";
+								}
+								
+								document.querySelector(".final-score").innerHTML = score + "0";
+								document.getElementById("showResult").style.display = "none";
+								return generateRandom();
+						}
+								
+
+						if (randomGame == 1){
+
+							//Show addition
+							function next(){
+							var addnum1 = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+							var addnum2 = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+
+							document.getElementById('addEquation').value = addnum1 +' + '+ addnum2;
+							document.getElementById('addAns').value = '';
+
+							if(document.querySelector(".question").innerHTML < 15){
+									document.querySelector(".question").innerHTML ++;
+								}else{
+									document.querySelector(".game-over").style.display = "block";
+									document.querySelector(".addition").style.display = "none";
+									holder.style.display = "none";
+								}
+
+							//If the enter key is clicked, check answer and give feedback
+							document.getElementById("addAns").addEventListener("keyup", function (event){
+								if (event.keyCode === 13) {
+								document.getElementById("add").click();
+								}
+							});
+
+							//If the submit button is clicked, check answer and give feedback
+						 	var addNum = document.getElementById("add");
+							addNum.onclick =  function(){
+							
+							var sum = addnum1 + addnum2;
+							var answer = document.getElementById('addAns').value;
+							var result = document.getElementById("showResult").style.display = "block";
+
+							if(answer != sum){
+								document.querySelector(".result").innerHTML = "Incorrect, better luck next time. The correct answer is " + sum + ". Click continue to proceed";
+							} else{
+								var score = document.querySelector(".score").innerHTML ++;
+								document.querySelector(".result").innerHTML = "Correct. Click continue to proceed";
+							}
+									
+	
+								}
+					}
+
+
+					add.style.display = "block";
+					minus.style.display = "none";
+					multiply.style.display = "none";
+					divide.style.display = "none";
+					mod.style.display = "none";
+					return next();
+					
+					} else if (randomGame == 2) {
+							
+						function next(){
+						var subnum1 = Math.floor(Math.random() * (100 - 1 + 1)) + 2;
+						var subnum2 = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+
+
+						document.getElementById('subEquation').value = subnum1 +' - '+ subnum2;
+						document.getElementById('subAns').value = '';
+
+						if(document.querySelector(".question").innerHTML < 15){
+									document.querySelector(".question").innerHTML ++;
+								}else{
+									document.querySelector(".game-over").style.display = "block";
+									document.querySelector(".subtraction").style.display = "none";
+									holder.style.display = "none";
+								}
+
+							//If the enter key is clicked, check answer and give feedback
+							document.getElementById("subAns").addEventListener("keyup", function (event){
+								if (event.keyCode === 13) {
+								document.getElementById("sub").click();
+								}
+							});
+
+						//If the add button is clicked, check answer and give feedback
+						document.getElementById("sub").onclick =  function(){
+							var sum = subnum1 - subnum2;
+							var answer = document.getElementById('subAns').value;
+							var result = document.getElementById("showResult").style.display = "block";
+
+							if(answer != sum){
+								document.querySelector(".result").innerHTML = "Incorrect, better luck next time. The correct answer is " + sum + ". Click continue to proceed";
+							} else{
+								var score = document.querySelector(".score").innerHTML ++;
+								document.querySelector(".result").innerHTML = "Correct. Click continue to proceed";
+							}
+						}
+				}
+					add.style.display = "none";
+					minus.style.display = "block";
+					multiply.style.display = "none";
+					divide.style.display = "none";
+					mod.style.display = "none";
+					return next();
+
+				} else if (randomGame == 3){
+
+					function next(){
+						var mulnum1 = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+						var mulnum2 = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+
+
+						document.getElementById('mulEquation').value = mulnum1 +' x '+ mulnum2;
+						document.getElementById('mulAns').value = '';
+
+						if(document.querySelector(".question").innerHTML < 15){
+									document.querySelector(".question").innerHTML ++;
+								}else{
+									document.querySelector(".game-over").style.display = "block";
+									document.querySelector(".multiplication").style.display = "none";
+									holder.style.display = "none";
+							}
+
+							//If the enter key is clicked, check answer and give feedback
+							document.getElementById("mulAns").addEventListener("keyup", function (event){
+								if (event.keyCode === 13) {
+								document.getElementById("mul").click();
+								}
+							});
+
+						//If the add button is clicked, check answer and give feedback
+						document.getElementById("mul").onclick =  function(){
+							var sum = mulnum1 * mulnum2;
+							var answer = document.getElementById('mulAns').value;
+							var result = document.getElementById("showResult").style.display = "block";
+							
+							if(answer != sum){
+								document.querySelector(".result").innerHTML = "Incorrect, better luck next time. The correct answer is " + sum + ". Click continue to proceed";
+							} else{
+								var score = document.querySelector(".score").innerHTML ++;
+								document.querySelector(".result").innerHTML = "Correct. Click continue to proceed";
+							}
+						}
+				}
+
+					add.style.display = "none";
+					minus.style.display = "none";
+					multiply.style.display = "block";
+					divide.style.display = "none";
+					mod.style.display = "none";
+					return next();	
+
+				} else {
+
+					function next(){
+						var modnum1 = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
+						var modnum2 = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+
+
+						document.getElementById('modEquation').value = modnum1 +' % '+ modnum2;
+						document.getElementById('modAns').value = '';
+
+						if(document.querySelector(".question").innerHTML < 15){
+									document.querySelector(".question").innerHTML ++;
+								}else{
+									document.querySelector(".game-over").style.display = "block";
+									document.querySelector(".modulus").style.display = "none";
+									holder.style.display = "none";
+						}
+
+						//If the enter key is clicked, check answer and give feedback
+						document.getElementById("modAns").addEventListener("keyup", function (event){
+								if (event.keyCode === 13) {
+								document.getElementById("mod").click();
+								}
+						});
+
+						//If the add button is clicked, check answer and give feedback
+						document.getElementById("mod").onclick =  function(){
+							var sum = modnum1 % modnum2;
+							var answer = document.getElementById('modAns').value;
+							var result = document.getElementById("showResult").style.display = "block";
+							
+							if(answer != sum){
+								document.querySelector(".result").innerHTML = "Incorrect, better luck next time. The correct answer is " + sum + ". Click continue to proceed";
+							} else{
+								var score = document.querySelector(".score").innerHTML ++;
+								document.querySelector(".result").innerHTML = "Correct. Click continue to proceed";
+							}
+						}
+				}
+
+					add.style.display = "none";
+					minus.style.display = "none";
+					multiply.style.display = "none";
+					divide.style.display = "none";
+					mod.style.display = "block";
+					return next();
+
+			}
+		}
+			
+
+
+
+			/* division
+
+			function next(){
+						var divnum1 = Math.floor(Math.random() * (50 - 25 + 1)) + 1;
+						var divnum2 = Math.floor(Math.random() * (25 - 1 + 1)) + 1;
+
+
+						document.getElementById('divideEquation').value = divnum1 +' / '+ divnum2;
+						document.getElementById('divideAns').value = '';
+
+						if(document.querySelector(".question").innerHTML < 15){
+									document.querySelector(".question").innerHTML ++;
+								}else{
+									document.querySelector(".game-over").style.display = "block";
+									document.querySelector(".division").style.display = "none";
+									holder.style.display = "none";
+						}
+
+						//If the enter key is clicked, check answer and give feedback
+						document.getElementById("divideAns").addEventListener("keyup", function (event){
+								if (event.keyCode === 13) {
+								document.getElementById("divide").click();
+								}
+						});
+
+						//If the add button is clicked, check answer and give feedback
+						document.getElementById("divide").onclick =  function(){
+							var sum = ((divnum1 * 10) / (divnum2 * 10)) / 10;
+							var answer = document.getElementById('divideAns').value;
+							var result = document.getElementById("showResult").style.display = "block";
+							
+							if(answer != sum){
+								document.querySelector(".result").innerHTML = "Incorrect, better luck next time. The correct answer is " + sum + ". Click continue to proceed";
+							} else{
+								var score = document.querySelector(".score").innerHTML ++;
+								document.querySelector(".result").innerHTML = "Correct. Click continue to proceed";
+							}
+						}
+		}
+
+					add.style.display = "none";
+					minus.style.display = "none";
+					multiply.style.display = "none";
+					divide.style.display = "block";
+					mod.style.display = "none";
+					return next();
+
+
+			*/
+			
+		</script>
+	</body>
+
+</html>
