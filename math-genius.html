@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/jpg" href="images/precious.jpg"/>
+		<title>MATHS GENIUS | By Precious Jw</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	
+	<body>
+			
+		<div class="game-body">
+			<h1 class="game-header select">MATH GENIUS</h1>
+			
+			<div class="main-body">
+				<section id="welcome-content">
+					<h2 class="game-subheader select">Welcome to Math Genius</h2>
+					<h3 class="text select">Let's see how good your math skills are</h3>
+						<span class="flex">
+							<span class="question-holder">Q<span class="question">0</span></span>
+							<span class="score-holder">Score:<span class="score">0</span>0 Points</span>
+						</span>
+
+						<button id="play" onclick="generateRandom()" class="button">PLAY GAME</button>
+
+				</section>
+				
+				<section class="solutions">
+					
+					<div class="addition">
+						<h2 class="addition-subheader">Addition</h2>
+						<h3 class="text">Find the sum of the following</h3>
+						<input type='text' id='addEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='addAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='add' class="button" value="Submit">
+						<input type='submit' id="addHome" value='Home' class="button">
+					</div>
+
+					<div class="subtraction">
+						<h2 class="subtraction-subheader">Subtraction</h2>
+						<h3 class="text">Find the difference between the following numbers</h3>
+						<input type='text' id='subEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='subAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='sub' onclick='sub()' value='submit' class="button">
+						<input type='submit' id="subHome" value='Home' class="button">
+					</div>
+
+					<div class="multiplication">
+						<h2 class="multiplication-subheader">Multiplication</h2>
+						<h3 class="text">Find the product of the following</h3>
+						<input type='text' id='mulEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='mulAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='mul' onclick='mul()' value='submit' class="button">
+						<input type='submit' id="mulHome" value='Home' class="button">
+					</div>
+
+					<div class="division">
+						<h2 class="division-subheader">Division</h2>
+						<h3 class="text">Divide the following numbers</h3>
+						<input type='text' id='divideEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='divideAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='divide' onclick='divide()' value='submit' class="button">
+						<input type='submit' id="divHome" value='Home' class="button">
+					</div>
+
+					<div class="modulus">
+						<h2 class="modulus-subheader">Modulus</h2>
+						<h3 class="text">Find the remainder of the following divisions</h3>
+						<input type='text' id='modEquation' class="inputs">&nbsp;&nbsp;<strong>=</strong>&nbsp;&nbsp;<input type='text' id='modAns' class="inputs answers" placeholder='answer'>
+						<input type='submit' id='mod' onclick='mod()' value='submit' class="button">
+						<input type='submit' id="modHome" value='Home' class="button">
+					</div>
+					<div class="game-over">
+						<h2 class="over-header">GAME OVER</h2>
+						<p class="final-text">Well done. Your final rating is <br><p class="rating-holder"><strong class="rating"></strong></p></p>
+						<p class="details">Your is final score is <p class="final-score-holder"><strong class="final-score"></strong></p></p>
+						<input type='submit' id='again' value='Play again' class="button">
+						<button id='overHome' class="button">Home</button>
+					</div>
+				</section>
+			</div>
+
+			<div id="myModal" class="modal box">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h2>MATH GENIUS</h2>
+				  </div>
+				  <div class="modal-body">
+					<p>Are you sure you want to quit? Your current progress will be lost</p><br>
+					<a id="goHome">Yes</a><a id="close">No</a>
+				  </div>
+				</div>
+			  
+			</div>
+
+			  <div id="showResult" class="modal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h2>MATH GENIUS</h2>
+				  </div>
+				  <div class="modal-body">
+					<p class="result"></p>
+					<a id="continue">Continue</a>
+				  </div>
+				</div>
+			  
+			  </div><br><br>
+			  		
+		</div>
+		
+		
+		<script src="js/script.js"></script>
+	</body>
+
+</html>
