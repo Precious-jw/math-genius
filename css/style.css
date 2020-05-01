@@ -1,0 +1,247 @@
+body{
+    background-color: rgb(206, 134, 0);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 100%;
+}
+.game-body{
+    text-align: center;
+    transition: .4s;
+}
+.main-body{
+    margin-top: 1%;
+    padding: 2%;
+    width: 45%;
+    border: 2px solid white;
+    box-shadow: 0px 0px 15px 0px rgb(112, 112, 112);
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .4s;
+}
+.select{
+    -webkit-animation-name: sol;
+    -webkit-animation-duration: 0.8s;
+    animation-name: sol;
+    animation-duration: 0.8s;
+}
+.inputs{
+    outline: 0;
+    color: black;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 2% 0 2% 0;
+    width: 20%;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 120%;
+    transition: .5s;
+}
+.inputs:focus{
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+    transition: .5s;
+}
+.button{
+    background-color: orange;
+    border: 2px solid white;
+    border-radius: 30px;
+    color: white;
+    padding: 2% 3% 2% 3%;
+    margin-left: 1%;
+    cursor: pointer;
+    outline: none;
+    transition: .4s;
+}
+.button:hover{
+    background-color: rgb(206, 134, 0);
+    transition: .4s;
+}
+.addition{
+    display: none;
+    -webkit-animation-name: sol;
+    -webkit-animation-duration: 1s;
+    animation-name: sol;
+    animation-duration: 1s;
+}
+.subtraction{
+    display: none;
+    -webkit-animation-name: sol;
+    -webkit-animation-duration: 1s;
+    animation-name: sol;
+    animation-duration: 1s;
+}
+.multiplication{
+    display: none;
+    -webkit-animation-name: sol;
+    -webkit-animation-duration: 1s;
+    animation-name: sol;
+    animation-duration: 1s;
+}
+.division{
+    display: none;
+    -webkit-animation-name: sol;
+    -webkit-animation-duration: 1s;
+    animation-name: sol;
+    animation-duration: 1s;
+}
+.modulus{
+    display: none;
+    -webkit-animation-name: sol;
+    -webkit-animation-duration: 1s;
+    animation-name: sol;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes sol {
+    from {top:-35%; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes sol {
+    from {top:-35%; opacity:0}
+    to {top:0;opacity:1}
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding: 15% 0 0 0;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-body{
+    margin: 3% 2% 0 2%;
+}
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0 0 2% 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 0px 15px 0 rgb(26, 26, 26);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.6s;
+    animation-name: animatetop;
+    animation-duration: 0.6s
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-35%; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-35%; opacity:0}
+    to {top:0;opacity:1}
+}
+.modal a{
+    text-decoration: none;
+    padding: 2% 5%;
+    margin: 4%;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+.modal a:hover{
+    background-color: rgb(187, 121, 0);
+}
+.modal-header {
+    padding: 1% 16px 1% 16px;
+    background-color: orange;
+    color: white;
+}
+.showResult a{
+    text-decoration: none;
+    padding: 1% 2%;
+    margin: 2%;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+.showResult a:hover{
+    background-color: rgb(187, 121, 0);
+}
+.flex{
+    font-size: 120%;
+    font-weight: bolder;
+    height: auto;
+    width: 100%;
+    display: none;
+}
+.score-holder{
+    display: flex;
+    margin-left: auto;
+}
+.score, .question{
+    padding-left: 2%;
+}
+.timer-holder{
+    margin-left: auto;
+}
+.question-holder{
+    display: flex;
+    margin-right: auto;
+}
+.game-over{
+    display: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-animation-name: sol;
+    -webkit-animation-duration: 1s;
+    animation-name: sol;
+    animation-duration: 1s;
+}
+.details, .final-text{
+    width: auto;
+    margin: auto;
+    display: block;
+    font-size: larger;
+    font-weight: bolder;
+}
+.rating-holder, .final-score-holder{
+    width: 20%;
+    margin: auto;
+    padding: 2%;
+    margin-top: 2%;
+    border: 2px solid white;
+    box-shadow: 0 0px 15px 0 rgb(26, 26, 26);
+}
+
+/*Responsitivity*/
+@media screen and (max-width: 800px){
+    .game-body{
+        margin-top: 10%;
+        font-size: 90%;
+    }
+    .main-body{
+        width: 70%;
+        padding-bottom: 5%;
+        padding-right: 5%;
+    }
+    .inputs{
+        width: 70%;
+        margin-top: 1%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .answers{
+        margin-bottom: 5%;
+    }
+    .modal {
+        padding: 55% 0 0 0;
+    }
+    .modal-content {
+        width: 80%;
+    }
+}
